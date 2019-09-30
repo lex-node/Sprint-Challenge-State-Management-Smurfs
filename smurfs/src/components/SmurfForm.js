@@ -1,7 +1,13 @@
 import React from 'react';
 import {useInput} from '../hooks/useInput';
+import {postSmurfs} from "../actions/postSmurfs";
+import {connect} from "react-redux";
 
-export function SmurfForm(props) {
+const mapStateToProps = state => ({
+    smurfs: state.smurfs
+});
+
+const SmurfForm = (props) => {
     const {value: name, bind: bindName, reset: resetName} = useInput('');
     const {value: age, bind: bindAge, reset: resetAge} = useInput('');
     const {value: height, bind: bindHeight, reset: resetHeight} = useInput('');
@@ -9,6 +15,8 @@ export function SmurfForm(props) {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        console.log({name: name, age: age, height: height});
+        props.postSmurfs({name: name, age: age, height: height});
         resetName();
         resetAge();
         resetHeight();
@@ -32,4 +40,7 @@ export function SmurfForm(props) {
     );
 }
 
-export default SmurfForm;
+export default connect(
+    mapStateToProps,
+    {postSmurfs}
+)(SmurfForm);

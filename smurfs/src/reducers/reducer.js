@@ -30,7 +30,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: false,
-                isPosting: false
+                isPosting: true
             };
         case POST_SMURFS_SUCCESS:
             return {
