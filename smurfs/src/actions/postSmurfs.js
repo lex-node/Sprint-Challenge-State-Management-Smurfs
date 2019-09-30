@@ -9,9 +9,10 @@ export const postSmurfs = (newSmurf) => dispatch => {
     axios
         .post("http://localhost:3333/smurfs", newSmurf)
         .then(res => {
+            console.log(res.data);
             dispatch({
                 type: POST_SMURFS_SUCCESS,
-                payload: res
+                payload: res.data
             })
         })
         .catch(err => {
