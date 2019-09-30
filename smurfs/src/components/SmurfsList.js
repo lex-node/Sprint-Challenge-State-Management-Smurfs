@@ -3,13 +3,22 @@ import {connect} from 'react-redux';
 import {getSmurfs} from '../actions/getSmurfs';
 import Smurf from './Smurf';
 
-class SmurfsList extends React.Component {
+const mapStateToProps = state => {
+    smurfs: state.smurfs
+}
 
+
+class SmurfsList extends React.Component {
     render() {
         return (
             <Smurf/>
         )
     }
 };
+
+export default connect(
+    mapStateToProps,
+    {getSmurfs}
+)(SmurfsList);
 
 
