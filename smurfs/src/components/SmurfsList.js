@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {getSmurfs} from '../actions/getSmurfs';
 import Smurf from './Smurf';
 
+
 const mapStateToProps = state => ({
     smurfs: state.smurfs
 });
@@ -15,7 +16,7 @@ class SmurfsList extends React.Component {
                 <button onClick={() => this.props.getSmurfs()}>Get Smurfs List</button>
                 {
                     this.props.smurfs.map(smurf => (
-                        <Smurf smurf={smurf}/>
+                        <Smurf key={smurf.id} smurf={smurf}/>
                     ))
                 }
             </div>
