@@ -16,14 +16,14 @@ class SmurfsList extends React.Component {
                 <button onClick={() => this.props.getSmurfs()}>Get Smurfs List</button>
                 {
                     this.props.smurfs.map(smurf => (
-                        <Smurf key={smurf.id} smurf={smurf}/>
+                        <Smurf key={Math.random() * 10} smurf={smurf}/>
                     ))
                 }
             </div>
 
         )
     }
-};
+}
 
 export default connect(
     mapStateToProps,
