@@ -9,27 +9,40 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_SMURFS_START:
             return {
-                ...state
+                ...state,
+                isFetching: true,
+                isPosting: false
             };
         case FETCH_SMURFS_SUCCESS:
             return {
-                ...state
+                ...state,
+                smurfs: action.payload,
+                isFetching: false,
+                isPosting: false
             };
         case FETCH_SMURFS_FAIL:
             return {
-                ...state
+                ...state,
+                isFetching: false,
+                isPosting: false
             };
         case POST_SMURFS_START:
             return {
-                ...state
+                ...state,
+                isFetching: false,
+                isPosting: false
             };
         case POST_SMURFS_SUCCESS:
             return {
-                ...state
+                ...state,
+                isFetching: false,
+                isPosting: false
             };
         case POST_SMURFS_FAIL:
             return {
-                ...state
+                ...state,
+                isFetching: false,
+                isPosting: false
             };
         default:
             return state
