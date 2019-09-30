@@ -2,7 +2,7 @@ import {FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAIL} from "../ac
 import {POST_SMURFS_START, POST_SMURFS_SUCCESS, POST_SMURFS_FAIL} from "../actions/postSmurfs";
 
 const initialState = {
-    smurfs: []
+    smurfs: [{}]
 }
 
 const reducer = (state = initialState, action) => {
