@@ -22,11 +22,30 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] What problem does the context API help solve?
-- [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
-- [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
-- [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
-- [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+ What problem does the context API help solve?
+    
+    sharing state among components without complex props drilling all the way from parent to child to sub-child etc.; it does this by storing state in a special context object
+ 
+ In your own words, describe actions, reducers and the store and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+        actions feed a special kind of action object to a reducer function via a redux method called ‘dispatch’...the action object will have a “type” property to trigger specific function in the reducer and optionally a ‘payload’ property to supply the reducer with data
+        reducers accept action objects and use them as a basis for returning a new app state, depending on the action.type and action.payload
+        store is a special redux object that holds the ‘immutable’ data of the app at each moment and can be plugged into special redux methods like {connect}
+ 
+ What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+    application state is global and immutable
+    component state is specific to that component and can be manipulated--e.g. via hooks
+    if a piece of state can remain within a component then it can live in that component; otherwise it’s better to use global state
+ 
+ Describe redux-thunk, what does it allow us to do? How does it change our action-creators?
+
+    thunk is middleware that enables an async function to be completed within an action before the action is dispatched to the reducer  
+ 
+ What is your favorite state management system you've learned and this sprint? Please explain why!
+
+	redux! 
+
 
 ## Project Set Up
 
